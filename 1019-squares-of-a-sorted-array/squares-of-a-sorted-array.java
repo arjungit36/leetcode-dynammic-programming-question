@@ -21,8 +21,6 @@ class Solution {
             else
                 B[k++] = nums[i];
         }
-
-        // Square elements
         for (int i = 0; i < m; i++) {
             A[i] = A[i] * A[i];
         }
@@ -30,8 +28,6 @@ class Solution {
         for (int i = 0; i < n; i++) {
             B[i] = B[i] * B[i];
         }
-
-        // Reverse B
         int left = 0, right = n - 1;
         while (left < right) {
             int temp = B[left];
@@ -46,8 +42,6 @@ class Solution {
         int i = 0;
         j = 0;
         k = 0;
-
-        // Merge
         while (i < m && j < n) {
             if (A[i] < B[j]) {
                 fin[k++] = A[i++];
