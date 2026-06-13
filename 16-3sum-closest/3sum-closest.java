@@ -16,7 +16,6 @@ class Solution {
                 } else if (currSum > target) {
                     right--;
                 } else {
-                    // Exact match found
                     return currSum;
                 }
             }
