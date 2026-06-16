@@ -1,26 +1,41 @@
 class Solution {
     public int compress(char[] chars) {
-        int i = 0;
-        int index = 0;
+   int n = chars.length;
+        StringBuilder s = new StringBuilder();
 
-        while (i < chars.length) {
-            char current = chars[i];
-            int count = 0;
+        int i = 0, j = 0, c = 0;
 
-            while (i < chars.length && chars[i] == current) {
-                count++;
-                i++;
-            }
+        while (j < n) {
 
-            chars[index++] = current;
+            if (chars[i] == chars[j]) {
+                c++;
+                j++;
+            } else {
 
-            if (count > 1) {
-                for (char ch : String.valueOf(count).toCharArray()) {
-                    chars[index++] = ch;
+                s.append(chars[i]);
+
+                if (c > 1) {
+                    s.append(c);
                 }
+
+                i = j;
+                c = 0;
             }
         }
 
-        return index;
+        // last group
+        s.append(chars[i]);
+
+        if (c > 1) {
+            s.append(c);
+        }
+
+        String h = s.toString();
+
+        for (int k = 0; k < h.length(); k++) {
+            chars[k] = h.charAt(k);
+        }
+
+        return h.length();
     }
 }
